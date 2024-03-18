@@ -1,11 +1,14 @@
 // Write your JS code here
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
 import CryptocurrencyItem from '../CryptocurrencyItem/index'
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import './index.css'
 
 class CryptocurrenciesList extends Component {
   state = {
     cryptoList: [],
+    isLoading: true,
   }
 
   componentDidMount() {
@@ -27,10 +30,11 @@ class CryptocurrenciesList extends Component {
     console.log(updatedResponse)
     this.setState({
       cryptoList: updatedResponse,
+      isLoading: false,
     })
   }
 
-  render() {
+  renderPageAfterFetch = () => {
     const {cryptoList} = this.state
     return (
       <div className="crypto-list-bg-container">
@@ -48,14 +52,30 @@ class CryptocurrenciesList extends Component {
               <h1 className="currency-value-heading">EURO</h1>
             </div>
           </div>
+          <ul className="fetched-list">
+            {cryptoList.map(crypto => (
+              <CryptocurrencyItem key={crypto.id} cryptoDetails={crypto} />
+            ))}
+          </ul>
         </div>
-        <ul className="fetched-list">
-          {cryptoList.map(crypto => (
-            <CryptocurrenciesList key={crypto.id} cryptoDetails={crypto} />
-          ))}
-        </ul>
       </div>
     )
+  }
+
+  render() {
+    const {isLoading} = this.state
+    console.log(isLoading)
+    let fetch
+    if (isLoading) {
+      fetch = (
+        <div data-testid="loader">
+          <Loader type="Rings" color="#ffffff" height={80} width={80} />
+        </div>
+      )
+    } else {
+      fetch = this.renderPageAfterFetch()
+    }
+    return fetch
   }
 }
 
