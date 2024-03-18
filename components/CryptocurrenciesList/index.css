@@ -1,0 +1,78 @@
+/* Write your CSS code here */
+* {
+  font-family: 'Roboto';
+}
+.crypto-list-bg-container {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.crypto-image {
+  height: 350px;
+  width: 100%;
+  margin-top: 0px;
+}
+.heading {
+  color: #00e7ff;
+  font-weight: 600;
+  font-size: 40px;
+}
+.crypto-list-container {
+  background-color: transparent;
+  border: 5px solid #00e7ff;
+  width: 100%;
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.list-headers-container {
+  background-color: #092e33;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+}
+
+.currency-value-headers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.currency-value-heading {
+  color: white;
+  font-weight: 500;
+  font-size: 25px;
+  margin: 25px;
+}
+.fetched-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 767px) and (orientation: portrait) {
+  .heading {
+    font-size: 28px;
+  }
+  .crypto-image {
+    width: 85%;
+    height: 30%;
+  }
+  .crypto-list-container {
+    height: 45%;
+  }
+  .currency-value-heading {
+    font-size: 18px;
+    margin: 15px;
+  }
+  .list-headers-container {
+    padding: 2px;
+  }
+}
