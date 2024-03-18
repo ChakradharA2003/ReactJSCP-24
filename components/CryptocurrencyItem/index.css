@@ -1,8 +1,41 @@
 /* Write your CSS code here */
+* {
+  font-family: 'Roboto';
+}
 .crypto-list {
   background-color: transparent;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin: 10px;
+}
+.crypto-type-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.crypto-logo {
+  height: 25px;
+  width: 25px;
+}
+.crypto-name {
+  color: white;
+  font-size: 16px;
+  margin: 10px;
+}
+.crypto-values-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: auto;
+}
+@media (max-width: 767px) and (orientation: portrait) {
+  .crypto-name {
+    font-size: 10px;
+  }
+  .crypto-type-container {
+    margin-right: auto;
+  }
 }
